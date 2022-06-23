@@ -1,4 +1,4 @@
-@import url("reset.css");
+/* @import url("reset.css"); */
 body {
   background-color: aliceblue;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -26,8 +26,12 @@ body {
   width: 80%;
   height: 35px;
   margin-top: 15px;
-  border: 0;
+  border: none;
   border-radius: 5px;
+}
+.chat .chat__sendBox .chat__input:focus {
+  border: 1px solid orange;
+  outline: none;
 }
 .chat .chat__sendBox .chat__btn {
   all: unset;
@@ -42,8 +46,19 @@ body {
   font-weight: 400;
   font-size: 12px;
 }
+.chat .chat__sendBox .chat__context {
+  list-style-type: none;
+  margin-top: 5px;
+  font-size: 8px;
+}
+#messages {
 
-
+}
+.others-message-wrapper {
+  
+}
+.my-message-wrapper {
+}
 
 /* form {
   background: #eee;

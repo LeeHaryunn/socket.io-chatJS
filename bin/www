@@ -8,18 +8,30 @@ var app = require('../app');
 var debug = require('debug')('chatjs:server');
 var http = require('http');
 
+const { isObject } = require('util');
+const { Socket } = require('dgram');
+
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+//app.use("/static", express.static('./static/')); 안됨
 
 /**
  * Create HTTP server.
  */
 
 var server = http.createServer(app);
+const io = require('socket.io')(server);
+
+io.on('connection', (Socket) => {
+  Socket.on('chat message', (message) => {
+    Socket.broadcast.emit('chat message', message);
+  });
+  // console.log('User Connected');
+});
 
 /**
  * Listen on provided port, on all network interfaces.
